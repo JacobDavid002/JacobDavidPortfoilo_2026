@@ -9,7 +9,7 @@ body, html {
 }
 
 .content-body {
-    background-color: #192a2c; 
+    background-color: var(--brand-dark); 
 }
 
 .title-span {
@@ -19,7 +19,7 @@ body, html {
 .internal-title {
     font-family: 'PixelFont', monospace;
     font-size: 50px;
-    color: #ffffff; 
+    color: var(--brand-white); 
     margin: 0; /* Removed old borders/margins so the container handles it */
 }
 
@@ -40,7 +40,7 @@ body, html {
     font-family: 'PixelFont', monospace; 
     font-size: 13px; 
     font-weight: normal; 
-    color: #fff;             
+    color: var(--brand-white);             
     width: 100%;  
     line-height: 1.6;         
     margin: 0 0 50px 0; /* Pushes the favorite projects section down */               
@@ -50,10 +50,10 @@ body, html {
 .section-title {
     font-family: 'PixelFont', monospace; 
     font-size: 32px;
-    color: #fff; 
+    color: var(--brand-white); 
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid var(--brand-white);
     padding-bottom: 5px;
     margin-bottom: 20px;
 }
@@ -112,7 +112,7 @@ body, html {
 
 /* Give the expanded videos a cinematic wrapper */
 .favorite-projects-grid .project-card.expanded .expanded-media {
-    background-color: #111818;
+    background-color: var(--brand-darker);
     display: flex;
     justify-content: center;
     align-items: center;

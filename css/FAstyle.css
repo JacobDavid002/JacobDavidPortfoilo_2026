@@ -17,7 +17,7 @@ body, html {
 /* --- OVERRIDE: DARK THEME --- */
 /* F&A uses a darker aesthetic than the main OS */
 .content-body {
-    background-color: #192a2c; 
+    background-color: var(--brand-dark); 
 }
 
 .DescTEXT {
@@ -26,17 +26,17 @@ body, html {
 }
 
 .masonry-item {
-    background-color: #111818; 
-    border-color: #111818;
+    background-color: var(--brand-darker); 
+    border-color: var(--brand-darker);
 }
 
 .project-name {
-    background-color: #111818;
+    background-color: var(--brand-darker);
 }
 
 /* --- TOP HEADER SHOWREEL (BLACK BOX) --- */
 .header-block {
-    background-color: #000000; 
+    background-color: var(--brand-black); 
     padding: 20px; 
     width: 100%;
     margin-bottom: 20px; 
@@ -71,7 +71,7 @@ body, html {
     font-family: 'PixelFont', monospace; 
     font-size: 30px; 
     font-weight: normal; 
-    color: #fff;             
+    color: var(--brand-white);             
     width: 100%;  
     line-height: 1.6;         
     margin: 0;               
@@ -147,9 +147,7 @@ body, html {
     /* Forces standard YouTube horizontal shape */
     aspect-ratio: 9 / 16; 
     
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 2px solid var(--brand-dark);
 }
 
 /* --- THE TALL INSTAGRAM REEL --- */

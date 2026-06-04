@@ -1,8 +1,26 @@
+:root {
+    --brand-dark:     #192a2c;
+    --brand-darker:   #111818;
+    --brand-black:    #000000;
+    --brand-white:    #ffffff;
+    --accent-red:     #a40b0b;
+    --sky-grey:       #adb4bb;
+    --painting-bg:    #dcdcdc;
+    --mid-border:     #333333;
+    --brand-dark-95:  rgba(25, 42, 44, 0.95);
+    --brand-dark-50:  rgba(25, 42, 44, 0.5);
+    --brand-dark-30:  rgba(25, 42, 44, 0.3);
+    --brand-black-50: rgba(0, 0, 0, 0.5);
+    --brand-black-30: rgba(0, 0, 0, 0.3);
+    --brand-dark-98:  rgba(14, 23, 25, 0.98);
+}
+
 @font-face {
     font-family: 'PixelFont';
     src: url('fonts/dogica.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +28,7 @@
     src: url('fonts/Sneaky-Times.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* Base settings for the retro feel */
@@ -45,7 +64,7 @@ body, html {
 .icon-box {
     width: 100px;
     height: 100px;
-    /* border: 2px solid #192a2c;; */
+    /* border: 2px solid var(--brand-dark);; */
     margin-bottom: 8px;
     /* background-image: repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), repeating-linear-gradient(45deg, #000 25%, #fff 25%, #fff 75%, #000 75%, #000); */
     background-position: 0 0, 4px 4px;
@@ -65,8 +84,8 @@ body, html {
 
 /* --- HOMEPAGE APP FONT (Black Box, White Text) --- */
 .icon-label {
-    background-color: #192a2c; /* Black box */
-    color: #ffffff;            /* White text */
+    background-color: var(--brand-dark); /* Black box */
+    color: var(--brand-white);            /* White text */
     padding: 2px 6px;
     font-size: 14px;
     font-weight: bold;
@@ -78,8 +97,8 @@ body, html {
 
 /* --- CLICKED/ACTIVE STATE (White Box, Black Text) --- */
 .app-icon:active .icon-label {
-    background-color: #ffffff; /* Flips to White box */
-    color: #192a2c;;            /* Flips to Black text */
+    background-color: var(--brand-white); /* Flips to White box */
+    color: var(--brand-dark);;            /* Flips to Black text */
 }
 
 /* Pop-up Window (Modal) Styling */
@@ -88,9 +107,9 @@ body, html {
     position: absolute;
     top: 20%; /* Starting position before being dragged */
     left: 20%;
-    background-color: #ffffff;
-    border: 3px solid #192a2c;
-    box-shadow: 6px 6px 0px rgba(25, 42, 44, 0.5);
+    background-color: var(--brand-white);
+    border: 3px solid var(--brand-dark);
+    box-shadow: 6px 6px 0px var(--brand-dark-50);
     z-index: 10;
     /* resize: both; */
     overflow: hidden; /* Needed for resize to work */
@@ -98,8 +117,8 @@ body, html {
 
 /* Window Title Bar */
 .modal-header {
-    background-color: #ffffff;
-    border-bottom: 3px solid #192a2c;
+    background-color: var(--brand-white);
+    border-bottom: 3px solid var(--brand-dark);
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
@@ -107,7 +126,7 @@ body, html {
     font-weight: bold;
     
     /* --- YOUR LOVELY LINED PATTERN IS BACK! --- */
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px); 
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--brand-dark) 2px, var(--brand-dark) 4px);
     
     cursor: move; 
     user-select: none; 
@@ -120,9 +139,9 @@ body, html {
 }
 
 .modal-header span {
-    background-color: #ffffff;
+    background-color: var(--brand-white);
     padding: 0 10px;
-    border: 2px solid #192a2c;;
+    border: 2px solid var(--brand-dark);;
 }
 
 /* --- THE DYNAMIC WINDOW FLEXBOX UPGRADE --- */
@@ -146,9 +165,9 @@ body, html {
 }
 
 .close-btn {
-    background-color: #a40b0b;
-    color: #ffffff;
-    border: 2px solid #192a2c;;
+    background-color: var(--accent-red);
+    color: var(--brand-white);
+    border: 2px solid var(--brand-dark);;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace; 
@@ -156,13 +175,13 @@ body, html {
 }
 
 .close-btn:active {
-    background-color: #ffffff;;
-    color: #a40b0b;
+    background-color: var(--brand-white);;
+    color: var(--accent-red);
 }
 
 .min-btn {
-    background-color: #ffffff;
-    border: 2px solid #000000;
+    background-color: var(--brand-white);
+    border: 2px solid var(--brand-black);
     cursor: pointer;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace; 
@@ -170,8 +189,8 @@ body, html {
 }
 
 .min-btn:active {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--brand-black);
+    color: var(--brand-white);
 }
 
 
@@ -320,7 +339,7 @@ body, html {
     height: auto;
     margin-bottom: 15px; 
     display: block;
-    border: 1px solid #333; 
+    border: 1px solid var(--mid-border); 
 }
 
 /* Switches to 1 column if they shrink the window really small */
@@ -344,7 +363,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(25, 42, 44, 0.95); 
+    background-color: var(--brand-dark-95); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,7 +377,7 @@ body, html {
     width: 90%;
     max-height: 90%;      /* Prevents super tall images from overflowing the top/bottom */
     object-fit: contain;  /* Keeps the image perfectly proportioned */
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.5); /* Gives it some depth */
+    box-shadow: 0px 10px 30px var(--brand-black-50); /* Gives it some depth */
 }
 
 
@@ -370,7 +389,7 @@ body, html {
     text-align: center;
     font-family: 'PixelFont', monospace;
     font-size: 4vw; /* Scales automatically with the width of the screen */
-    color: rgba(25, 42, 44, 0.95);
+    color: var(--brand-dark-95);
     opacity: 0.5; /* Makes it look distant and atmospheric */
     
     /* THE MAGIC PARALLAX LAYER FIX */
@@ -389,7 +408,7 @@ body, html {
     text-align: center;
     font-family: 'PixelFont', monospace;
     font-size: 3vw; /* Scales automatically with the width of the screen */
-    color: rgba(25, 42, 44, 0.95);
+    color: var(--brand-dark-95);
     opacity: 0.5; /* Makes it look distant and atmospheric */
     
     /* THE MAGIC PARALLAX LAYER FIX */
@@ -410,7 +429,7 @@ body, html {
 .internal-title {
     font-family: 'PixelFont', monospace; /* The comma here is absolutely required! */
     font-size: 50px;
-    color:  #ffffff; 
+    color:  var(--brand-white); 
     padding-bottom: 10px; 
     margin-bottom: 30px;
 }
@@ -422,7 +441,7 @@ body, html {
     gap: 40px;
     
     /* The dashed line now sits under the entire row! */
-    border-bottom: 2px dashed #ffffff; 
+    border-bottom: 2px dashed var(--brand-white); 
     padding-bottom: 30px; 
     margin-bottom: 30px;
 }
@@ -560,15 +579,15 @@ body, html {
     break-inside: avoid; 
     
     margin-bottom: 15px; 
-    background-color: #192a2c; /* Retro dark backing for the caption */
-    border: 1px solid #333;
+    background-color: var(--brand-dark); /* Retro dark backing for the caption */
+    border: 1px solid var(--mid-border);
 }
 
 /* Overrides the default masonry image rules so it sits perfectly flush inside the card */
 .masonry-card img {
     margin-bottom: 0; 
     border: none; 
-    border-bottom: 2px solid #192a2c; /* Creates a clean dividing line above the text */
+    border-bottom: 2px solid var(--brand-dark); /* Creates a clean dividing line above the text */
 }
 
 /* The Description Text */
@@ -578,7 +597,7 @@ body, html {
     font-family: 'Courier New', Courier, monospace;
     font-size: 13px;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--brand-white);
     text-align: center;
 }
 
@@ -653,7 +672,7 @@ body, html {
     width: 100%;
     height: auto;
     display: block;
-    border: 2px solid #192a2c;
+    border: 2px solid var(--brand-dark);
     margin-bottom: 10px;
 }
 
@@ -668,7 +687,7 @@ body, html {
     width: 100%;
     height: auto;
     display: block;
-    border: 1px solid #192a2c;
+    border: 1px solid var(--brand-dark);
 }
 
 /* ========================================================= */
@@ -737,7 +756,7 @@ body, html {
     overflow: hidden; /* Hides the clouds before they enter the screen */
     pointer-events: none; /* CRITICAL: Allows you to click the desktop icons through it! */
 
-    background-color: #adb4bb; /* A soft retro blue. Change this hex code to anything you like! */
+    background-color: var(--sky-grey); /* A soft retro blue. Change this hex code to anything you like! */
 }
 
 /* The Ground */
@@ -765,15 +784,137 @@ body, html {
 /* Base Cloud Styling */
 .animated-cloud {
     position: absolute;
-    opacity: 0.8; /* Makes them slightly transparent for subtleness */
+    opacity: 0.8;
+    will-change: transform;
 }
 
-/* The Animation: Move from off-screen Right to off-screen Left */
+/* The Animation: Move from off-screen Right to off-screen Left (compositor-only via transform) */
 @keyframes floatCloud {
-    from {
-        left: 100vw; 
-    }
-    to {
-        left: -500px; /* Moves it safely past the left edge before deleting */
-    }
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100vw - 100% - 500px)); }
+}
+
+/* ========================================================= */
+/* --- KEYBOARD & FOCUS STYLES --- */
+/* ========================================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.app-icon:focus-visible {
+    outline: 3px solid var(--brand-dark);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.app-icon:focus-visible .icon-label {
+    background-color: var(--brand-white);
+    color: var(--brand-dark);
+}
+
+.close-btn:focus-visible,
+.min-btn:focus-visible {
+    outline: 3px solid var(--brand-dark);
+    outline-offset: 2px;
+}
+
+/* =========================================================== */
+/* --- CONTACT MODAL --- */
+/* =========================================================== */
+
+#modal-contact {
+    min-width: 300px;
+    max-width: 440px;
+}
+
+.contact-content {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.contact-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.contact-icon-lg {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+.contact-name {
+    font-family: 'PixelFont', monospace;
+    font-size: 12px;
+    margin: 0 0 6px 0;
+    color: var(--brand-dark);
+    letter-spacing: -0.5px;
+}
+
+.contact-tagline {
+    font-size: 12px;
+    margin: 0;
+    font-style: italic;
+    color: var(--brand-dark);
+}
+
+.contact-divider {
+    border: none;
+    border-top: 2px solid var(--brand-dark);
+    margin: 12px 0;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-label {
+    font-family: 'PixelFont', monospace;
+    font-size: 8px;
+    background-color: var(--brand-dark);
+    color: var(--brand-white);
+    padding: 3px 6px;
+    flex-shrink: 0;
+    min-width: 60px;
+    text-align: center;
+}
+
+.contact-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--brand-dark);
+    text-decoration: none;
+    word-break: break-all;
+}
+
+a.contact-value:hover {
+    text-decoration: underline;
+}
+
+.contact-footer {
+    font-size: 11px;
+    font-style: italic;
+    margin: 0;
+    color: var(--brand-dark);
+    opacity: 0.8;
 }
