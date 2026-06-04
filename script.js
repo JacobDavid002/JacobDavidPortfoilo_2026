@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } 
             else if (hasMoved) {
+                if (isIcon) element.dataset.wasDragged = '1';
                 let currentLeft = parseFloat(element.style.left);
                 let currentTop = parseFloat(element.style.top);
 
@@ -259,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 6. THE NEW CLICK LOGIC (Opening Windows)
         // ==========================================
         icon.addEventListener('click', () => {
+            if (icon.dataset.wasDragged) { delete icon.dataset.wasDragged; return; }
             const targetId = icon.getAttribute('data-target');
             let targetModal = null;
 
