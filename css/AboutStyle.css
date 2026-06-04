@@ -18,7 +18,7 @@ body, html {
 
 .internal-title {
     font-family: 'PixelFont', monospace;
-    font-size: 50px;
+    font-size: 40px;
     color: var(--brand-white); 
     margin: 0; /* Removed old borders/margins so the container handles it */
 }
