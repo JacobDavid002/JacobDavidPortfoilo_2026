@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButtons = document.querySelectorAll('.close-btn');
     const modals = document.querySelectorAll('.modal');
     
-    window.highestZIndex = 10;
+    let highestZIndex = 10;
     const desktopMargin = 20; 
     const gridSize = 20; 
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Nudge it back if it's bleeding off the right/bottom
         if (currentLeft > maxLeft) currentLeft = maxLeft;
         if (currentTop > maxTop) currentTop = maxTop;
-        
+
         // Nudge it back if it's bleeding off the left/top
         if (currentLeft < margin) currentLeft = margin;
         if (currentTop < margin) currentTop = margin;
@@ -57,43 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // 8. Apply the safe coordinates and bring to front
         modal.style.left = `${currentLeft}px`;
         modal.style.top = `${currentTop}px`;
-        
-        window.highestZIndex++;
-        modal.style.zIndex = window.highestZIndex;
+
+        highestZIndex++;
+        modal.style.zIndex = highestZIndex;
+
+        const firstFocusable = modal.querySelector('button');
+        if (firstFocusable) firstFocusable.focus();
+
+        // Update URL hash so this window is shareable
+        history.replaceState(null, '', '#' + modal.id);
     };
-    
-    // ... (Your existing Window Memory code might be here, keep it!) ...
+
     const allModals = document.querySelectorAll('.modal');
     allModals.forEach(modal => {
         modal.dataset.origTop = modal.style.top || '';
         modal.dataset.origLeft = modal.style.left || '';
         modal.dataset.origWidth = modal.style.width || '';
         modal.dataset.origHeight = modal.style.height || '';
-
-    // =========================================================
-    // --- NEW: URL PARAMETER AUTO-OPENER ---
-    // =========================================================
-    
-    // 1. Ask the browser to read the current URL's search parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // 2. Look specifically for a parameter named "open"
-    const windowToOpen = urlParams.get('open'); 
-
-    // 3. If the "open" parameter exists in the URL...
-    if (windowToOpen) {
-        // Find the window with the exact ID matching the parameter
-        const targetModal = document.getElementById(windowToOpen);
-        
-        // If that window actually exists in your HTML, open it!
-        if (targetModal) {
-            window.safeOpenModal(targetModal);
-            
-            // Optional: Bring it to the absolute front just to be safe
-            targetModal.style.zIndex = 1000; 
-        }
-    }
-});
+    });
 
 // --- REUSABLE DRAG FUNCTION (UPGRADED FOR TOUCHSCREENS) ---
     function makeDraggable(element, dragHandle, isIcon = false) {
@@ -163,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } 
             else if (hasMoved) {
+                if (isIcon) element.dataset.wasDragged = '1';
                 let currentLeft = parseFloat(element.style.left);
                 let currentTop = parseFloat(element.style.top);
 
@@ -238,9 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
             baseSpawnY = screenH * 0.65; 
         } 
         else if (index === 4) {
-            baseSpawnX = (screenW * 0.20) + 160; 
+            baseSpawnX = (screenW * 0.20) + 160;
             baseSpawnY = screenH * 0.65;
-        } 
+        }
+        else if (index === 5) {
+            baseSpawnX = screenW * 0.80 - iconWidth;
+            baseSpawnY = screenH * 0.65;
+        }
         else {
             baseSpawnX = desktopMargin;
             baseSpawnY = desktopMargin;
@@ -274,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 6. THE NEW CLICK LOGIC (Opening Windows)
         // ==========================================
         icon.addEventListener('click', () => {
+            if (icon.dataset.wasDragged) { delete icon.dataset.wasDragged; return; }
             const targetId = icon.getAttribute('data-target');
             let targetModal = null;
 
@@ -300,6 +287,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // If we found a window, safely open it!
             if (targetModal) {
                 window.safeOpenModal(targetModal);
+            }
+        });
+
+        icon.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                icon.click();
             }
         });
     });
@@ -548,6 +542,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 3. Reset the max-width/height just in case they closed it while it was Maximized!
                 modal.style.maxWidth = '';
                 modal.style.maxHeight = '';
+
+                // 4. Clear the URL hash if it pointed to this window
+                if (window.location.hash === '#' + modal.id) {
+                    history.replaceState(null, '', window.location.pathname);
+                }
             }
         });
     });
@@ -555,8 +554,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DYNAMIC BROWSER RESIZING (FLEXING) ---
     let prevScreenW = window.innerWidth;
     let prevScreenH = window.innerHeight;
+    let resizeDebounce;
 
     window.addEventListener('resize', () => {
+        clearTimeout(resizeDebounce);
+        resizeDebounce = setTimeout(() => {
         const currentScreenW = window.innerWidth;
         const currentScreenH = window.innerHeight;
 
@@ -625,6 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save new dimensions for the next time the window is resized
         prevScreenW = currentScreenW;
         prevScreenH = currentScreenH;
+        }, 50);
     });
 
 // --- IMAGE ZOOM LOGIC ---
@@ -716,10 +719,19 @@ document.addEventListener('click', (e) => {
     });
 
 
+// --- HASH-BASED DEEP LINK OPENER ---
+    const hashId = window.location.hash.slice(1);
+    if (hashId) {
+        const hashModal = document.getElementById(hashId);
+        if (hashModal) {
+            window.safeOpenModal(hashModal);
+        }
+    }
+
 // --- AUTO-OPEN ABOUT ME WINDOW ON LOAD ---
     const aboutModal = document.getElementById('modal-about');
-    
-    if (aboutModal) {
+
+    if (aboutModal && !hashId) {
         // 1. Get the safe screen dimensions
         const margin = 20;
         const screenW = document.documentElement.clientWidth;
@@ -758,8 +770,8 @@ document.addEventListener('click', (e) => {
         
         // 8. Open the window and bring it to the front
         aboutModal.style.display = 'block';
-        window.highestZIndex++;
-        aboutModal.style.zIndex = window.highestZIndex;
+        highestZIndex++;
+        aboutModal.style.zIndex = highestZIndex;
     }
 });
 
@@ -770,12 +782,12 @@ document.addEventListener('click', (e) => {
 const cloudLayer = document.getElementById('cloud-layer');
 
 const cloudImages = [
-    'BackdropImg/Cloud1.png', 
-    'BackdropImg/Cloud2.png', 
-    'BackdropImg/Cloud3.png',
-    'BackdropImg/Cloud4.png', 
-    'BackdropImg/Cloud5.png', 
-    'BackdropImg/Cloud6.png'
+    'BackdropImg/Cloud1.webp', 
+    'BackdropImg/Cloud2.webp', 
+    'BackdropImg/Cloud3.webp',
+    'BackdropImg/Cloud4.webp', 
+    'BackdropImg/Cloud5.webp', 
+    'BackdropImg/Cloud6.webp'
 ];
 function spawnCloudClump() {
     if (!cloudLayer) return;
@@ -845,11 +857,52 @@ function spawnCloudClump() {
     setTimeout(spawnCloudClump, nextSpawnTime);
 }
 
+function spawnInitialClouds() {
+    if (!cloudLayer) return;
+    const numClumps = 4;
+    for (let c = 0; c < numClumps; c++) {
+        const cloudsInClump = Math.floor(Math.random() * 3) + 1;
+        const baseTopPos = Math.floor(Math.random() * 35) + 5;
+        for (let i = 0; i < cloudsInClump; i++) {
+            const cloud = document.createElement('img');
+            cloud.src = cloudImages[Math.floor(Math.random() * cloudImages.length)];
+            cloud.className = 'animated-cloud';
+            const depth = Math.random();
+            const size = 100 + (depth * 350);
+            cloud.style.width = `${size}px`;
+            cloud.style.height = 'auto';
+            const targetOpacity = 0.5 + (depth * 0.9);
+            cloud.style.opacity = 0;
+            cloud.style.transition = 'opacity 1.2s ease';
+            const duration = 200 - (depth * 90);
+            // Negative delay places the cloud mid-journey on screen
+            const progress = 0.1 + (Math.random() * 0.75);
+            const negativeDelay = -(duration * progress);
+            cloud.style.animation = `floatCloud ${duration}s ${negativeDelay}s linear forwards`;
+            const verticalJitter = Math.floor(Math.random() * 9) - 4;
+            cloud.style.top = `${baseTopPos + verticalJitter}vh`;
+            cloud.style.left = '100vw';
+            cloud.style.zIndex = Math.floor(depth * 100);
+            cloudLayer.appendChild(cloud);
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                cloud.style.opacity = targetOpacity;
+            }));
+            const remaining = duration + negativeDelay;
+            if (remaining > 0) {
+                setTimeout(() => cloud.remove(), remaining * 1000);
+            } else {
+                cloud.remove();
+            }
+        }
+    }
+}
+
 // Start the weather engine when the page loads!
 window.addEventListener('load', () => {
     // Start the wobbly text
     animateSkyText();
-    // Spawns the first clump immediately
+    // Populate sky immediately, then keep spawning
+    spawnInitialClouds();
     spawnCloudClump();
 });
 

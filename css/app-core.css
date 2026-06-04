@@ -11,8 +11,8 @@
 .content-body {
     margin: 0;
     padding: 0;
-    /* background-color: #fff; */
-    font-family: Arial, sans-serif;
+    /* background-color: var(--brand-white); */
+    font-family: 'Courier New', Courier, monospace;
     overflow-y: auto;
     height: 100vh;
 }
@@ -44,8 +44,8 @@
 .masonry-item {
     display: flex;
     flex-direction: column;
-    /* border: 3px solid #192a2c;  */
-    background-color: #192a2c; 
+    /* border: 3px solid var(--brand-dark);  */
+    background-color: var(--brand-dark); 
     cursor: pointer; 
 }
 
@@ -60,18 +60,18 @@
     font-family: 'PixelFont', monospace; 
     font-size: 14px; 
     font-weight: normal; 
-    color: #fff;             
-    background-color: #192a2c;  
+    color: var(--brand-white);             
+    background-color: var(--brand-dark);  
     width: 100%;             
     margin: 0;               
     padding: 10px;     
-    border-top: 2px solid #192a2c;
+    border-top: 2px solid var(--brand-dark);
     transition: background-color 0.2s, color 0.2s;
 }
 
 .project-desc {
-    background-color: #192a2c;
-    color: #fff;
+    background-color: var(--brand-dark);
+    color: var(--brand-white);
     padding: 0 15px 15px 15px; 
     font-family: 'Courier New', Courier, monospace; 
     font-size: 13px;
@@ -80,19 +80,19 @@
 }
 
 .masonry-item:hover .project-name {
-    background-color: #ffffff; 
-    color: #192a2c;            
+    background-color: var(--brand-white); 
+    color: var(--brand-dark);            
 }
 
 .gallery-btn {
     width: 100%;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--brand-black);
+    color: var(--brand-white);
     font-family: 'PixelFont', monospace;
     font-size: 14px;
     padding: 12px;
     margin-top: 20px;
-    border: 1px dashed #fff; 
+    border: 1px dashed var(--brand-white); 
     cursor: pointer;
     text-align: center;
     transition: background-color 0.2s, color 0.2s;
@@ -100,8 +100,8 @@
 }
 
 .gallery-btn:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--brand-white);
+    color: var(--brand-black);
 }
 
 /* ========================================= */
@@ -113,7 +113,7 @@
     margin-top: 10px; 
     margin-bottom: 30px; 
 
-    background-color: #000000;
+    background-color: var(--brand-black)000;
     transition: background-color 0.3s ease, grid-row-end 0.3s ease;
 }
 
@@ -129,9 +129,9 @@
     order: 1; /* Swaps position to the top! */
     font-size: 18px; 
     padding: 15px;
-    /* background-color: #000000 !important; Locks dark mode */
-    color: #fff !important;            
-    border-bottom: 1px dashed #fff; 
+    /* background-color: var(--brand-black)000 !important; Locks dark mode */
+    color: var(--brand-white) !important;            
+    border-bottom: 1px dashed var(--brand-white); 
     border-top: none; 
 
     background-color: transparent; /* Lets the new card color show through! */
@@ -163,7 +163,7 @@ background-color: transparent;}
     
     /* 2. Format the video area to a cinematic ultra-wide shape! */
     .masonry-item.expanded .expanded-media {
-        background-color: #111818;
+        background-color: var(--brand-darker);
         position: relative; 
         width: 100%;
         aspect-ratio: 2.3 / 1; /* Creates perfect space for text below */

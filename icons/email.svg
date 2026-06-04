@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <style>.d{fill:#192a2c}.w{fill:#fff}</style>
+  </defs>
+
+  <!-- Outer envelope box (dark teal border) -->
+  <rect class="d" x="4" y="16" width="64" height="46"/>
+
+  <!-- White envelope body -->
+  <rect class="w" x="6" y="18" width="60" height="42"/>
+
+  <!-- V fold – LEFT ARM: 45° staircase from top-left corner down, then flat to centre -->
+  <rect class="d" x="6"  y="18" width="2" height="2"/>
+  <rect class="d" x="8"  y="20" width="2" height="2"/>
+  <rect class="d" x="10" y="22" width="2" height="2"/>
+  <rect class="d" x="12" y="24" width="2" height="2"/>
+  <rect class="d" x="14" y="26" width="2" height="2"/>
+  <rect class="d" x="16" y="28" width="2" height="2"/>
+  <rect class="d" x="18" y="30" width="2" height="2"/>
+  <rect class="d" x="20" y="32" width="2" height="2"/>
+  <rect class="d" x="22" y="34" width="2" height="2"/>
+  <rect class="d" x="24" y="36" width="2" height="2"/>
+  <!-- flat run to centre -->
+  <rect class="d" x="26" y="36" width="2" height="2"/>
+  <rect class="d" x="28" y="36" width="2" height="2"/>
+  <rect class="d" x="30" y="36" width="2" height="2"/>
+  <rect class="d" x="32" y="36" width="2" height="2"/>
+  <rect class="d" x="34" y="36" width="2" height="2"/>
+  <rect class="d" x="36" y="36" width="2" height="2"/>
+
+  <!-- V fold – RIGHT ARM: mirror -->
+  <rect class="d" x="64" y="18" width="2" height="2"/>
+  <rect class="d" x="62" y="20" width="2" height="2"/>
+  <rect class="d" x="60" y="22" width="2" height="2"/>
+  <rect class="d" x="58" y="24" width="2" height="2"/>
+  <rect class="d" x="56" y="26" width="2" height="2"/>
+  <rect class="d" x="54" y="28" width="2" height="2"/>
+  <rect class="d" x="52" y="30" width="2" height="2"/>
+  <rect class="d" x="50" y="32" width="2" height="2"/>
+  <rect class="d" x="48" y="34" width="2" height="2"/>
+  <rect class="d" x="46" y="36" width="2" height="2"/>
+  <!-- flat run to centre -->
+  <rect class="d" x="44" y="36" width="2" height="2"/>
+  <rect class="d" x="42" y="36" width="2" height="2"/>
+  <rect class="d" x="40" y="36" width="2" height="2"/>
+  <rect class="d" x="38" y="36" width="2" height="2"/>
+
+  <!-- Stamp outline (top-right of envelope) -->
+  <rect class="d" x="50" y="20" width="14" height="14"/>
+  <rect class="w" x="52" y="22" width="10" height="10"/>
+
+  <!-- Address lines (lower half, below the V fold) -->
+  <rect class="d" x="12" y="44" width="24" height="2"/>
+  <rect class="d" x="12" y="48" width="24" height="2"/>
+  <rect class="d" x="12" y="52" width="16" height="2"/>
+</svg>

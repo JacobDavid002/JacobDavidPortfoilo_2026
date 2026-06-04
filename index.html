@@ -3,7 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Lisa Inspired Portfolio</title>
+    <title>Jacob Lloyd David — Multidisciplinary Creative</title>
+    <meta name="description" content="Welsh-born, London-based multidisciplinary creative specialising in film, animation, graphic design, and painting. Available for creative employment.">
+    <meta name="author" content="Jacob Lloyd David">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://jacoblloyddavid.cargo.site/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jacob Lloyd David — Multidisciplinary Creative">
+    <meta property="og:description" content="Welsh-born, London-based multidisciplinary creative specialising in film, animation, graphic design, and painting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jacoblloyddavid.cargo.site/">
+    <meta property="og:image" content="https://jacoblloyddavid.cargo.site/images/profileimg.webp">
+    <meta property="og:site_name" content="Jacob Lloyd David">
+    <meta property="og:locale" content="en_GB">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jacob Lloyd David — Multidisciplinary Creative">
+    <meta name="twitter:description" content="Welsh-born, London-based multidisciplinary creative specialising in film, animation, graphic design, and painting.">
+    <meta name="twitter:image" content="https://jacoblloyddavid.cargo.site/images/profileimg.webp">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jacob Lloyd David",
+      "jobTitle": "Multidisciplinary Creative",
+      "description": "Welsh-born, London-based multidisciplinary creative specialising in film, animation, graphic design, and painting.",
+      "url": "https://jacoblloyddavid.cargo.site/",
+      "image": "https://jacoblloyddavid.cargo.site/images/profileimg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      },
+      "sameAs": ["https://www.linkedin.com/in/jacoblloyddavid"]
+    }
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,38 +49,38 @@
     <div id="scenic-background">
         <h1 id="sky-name">JACOB LLOYD DAVID </h1>
 
-        <h1 id="sky-text">CREATIVE PORTFOLIO </h1>
+        <p id="sky-text">CREATIVE PORTFOLIO </p>
 
         <div id="cloud-layer"></div>
-        <img src="BackdropImg/feild.png" id="ground-layer" alt="Retro Field Ground">
+        <img src="BackdropImg/feild.webp" id="ground-layer" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
     </div>
 
     <div class="desktop">
         
-        <div class="app-icon" data-target="modal-film">
+        <div class="app-icon" data-target="modal-film" role="button" tabindex="0" aria-label="Open Film &amp; Animation">
             <div class="icon-box">
-                <img src="icons/Filmanimation.svg" alt="Film Icon">
+                <img src="icons/Filmanimation.svg" alt="">
             </div>
             <div class="icon-label">Film & Animation</div>
         </div>
 
-        <div class="app-icon" data-target="modal-graphic">
+        <div class="app-icon" data-target="modal-graphic" role="button" tabindex="0" aria-label="Open Graphics &amp; Design">
             <div class="icon-box">
-                <img src="icons/GraphicDesign.svg" alt="graphic Icon">
+                <img src="icons/GraphicDesign.svg" alt="">
             </div>
             <div class="icon-label">Graphics & Design</div>
         </div>
 
-        <div class="app-icon" data-target="modal-painting">
+        <div class="app-icon" data-target="modal-painting" role="button" tabindex="0" aria-label="Open Painting &amp; Art">
             <div class="icon-box">
-                <img src="icons/Painting.svg" alt="paint Icon">
+                <img src="icons/Painting.svg" alt="">
             </div>
             <div class="icon-label">Painting & Art</div>
         </div>
 
-        <div class="app-icon" data-target="modal-about">
+        <div class="app-icon" data-target="modal-about" role="button" tabindex="0" aria-label="Open About Me">
             <div class="icon-box">
-                <img src="icons/Me.svg" alt="me Icon">                
+                <img src="icons/Me.svg" alt="">
             </div>
             <div class="icon-label">Abit_About_Me</div>
         </div>
@@ -52,21 +90,28 @@
             <div class="icon-label">Creative Computing</div>
         </div> -->
 
-    <div class="app-icon" data-target="random">
+    <div class="app-icon" data-target="random" role="button" tabindex="0" aria-label="Open a random project">
             <div class="icon-box">
-                <img src="icons/random.svg" alt="random Icon">             
+                <img src="icons/random.svg" alt="">
             </div>
             <div class="icon-label">Random</div>
         </div>
 
+        <div class="app-icon" data-target="modal-contact" role="button" tabindex="0" aria-label="Open Contact Jacob">
+            <div class="icon-box">
+                <img src="icons/email.svg" alt="">
+            </div>
+            <div class="icon-label">Contact_Me</div>
+        </div>
+
     </div>
 
-<div id="modal-film" class="modal">
+<div id="modal-film" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-film-title">
         <div class="modal-header">
-            <span>Film/Animation</span>
+            <span id="modal-film-title">Film/Animation</span>
             <div class="window-controls">
-            <button class="min-btn">[ ]</button>
-            <button class="close-btn">X</button>
+            <button class="min-btn" aria-label="Minimise window">[ ]</button>
+            <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         <div class="modal-content" style="padding: 0; overflow: hidden;">
@@ -74,12 +119,12 @@
         </div>
     </div>
 
-<div id="modal-graphic" class="modal">
+<div id="modal-graphic" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-graphic-title">
         <div class="modal-header">
-            <span>Graphic/Design</span>
+            <span id="modal-graphic-title">Graphic/Design</span>
             <div class="window-controls">
-            <button class="min-btn">[ ]</button>
-            <button class="close-btn">X</button>
+            <button class="min-btn" aria-label="Minimise window">[ ]</button>
+            <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         <div class="modal-content" style="padding: 0; overflow: hidden;">
@@ -87,12 +132,12 @@
         </div>
     </div>
 
-    <div id="modal-painting" class="modal">
+    <div id="modal-painting" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-painting-title">
         <div class="modal-header">
-            <span>Painting/Art</span>
+            <span id="modal-painting-title">Painting/Art</span>
             <div class="window-controls">
-            <button class="min-btn">[ ]</button>
-            <button class="close-btn">X</button>
+            <button class="min-btn" aria-label="Minimise window">[ ]</button>
+            <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         <div class="modal-content" style="padding: 0; overflow: hidden;">
@@ -100,12 +145,12 @@
         </div>
     </div>
 
-<div id="modal-about" class="modal">
+<div id="modal-about" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-about-title">
         <div class="modal-header">
-            <span>AbitAboutMe</span>
+            <span id="modal-about-title">AbitAboutMe</span>
             <div class="window-controls">
-            <button class="min-btn">[ ]</button>
-            <button class="close-btn">X</button>
+            <button class="min-btn" aria-label="Minimise window">[ ]</button>
+            <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         <div class="modal-content" style="padding: 0; overflow: hidden;">
@@ -127,69 +172,55 @@
     </div>       
 
 
-    <div id="modal-random" class="modal">
-        <div class="modal-header">
-            <span>Random</span>
-            <div class="window-controls">
-            <button class="min-btn">[ ]</button>
-            <button class="close-btn">X</button>
-            </div>
-        </div>
-        <div class="modal-content">
-            <p>a link to a random site in the website!</p>
-        </div>
-    </div> 
-
-
     <!-- _______PROJECT GALLRYz_____ -->
 
 <!-- ________________________________FILM & Animation___________________________________________ -->
 
         <!-- _______LostInEyes_____ -->
-    <div class="modal" id="modal-lost-eyes-gallery" style="top: 15%; left: 25%; width: 700px;">
-        
+    <div class="modal" id="modal-lost-eyes-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-lost-title" style="top: 15%; left: 25%; width: 700px;">
+
         <div class="modal-header">
-            <span>.Lost In Your Eyes_Gallery</span>
-            <button class="close-btn">X</button>
+            <span id="modal-lost-title">.Lost In Your Eyes_Gallery</span>
+            <button class="close-btn" aria-label="Close window">X</button>
         </div>
         
         <div class="modal-content">
             <div class="masonry-gallery">
-                <img src="Images/LostEyesImg/Image1.jpg" alt="Eyes Image 1">
-                <img src="Images/LostEyesImg/Image2.jpg" alt="Eyes Image 2">
+                <img src="Images/LostEyesImg/Image1.webp" alt="Eyes Image 1" loading="lazy">
+                <img src="Images/LostEyesImg/Image2.webp" alt="Eyes Image 2" loading="lazy">
                 </div>
         </div>
         
     </div>
 
         <!-- ______Paul_____ -->
-<div class="modal" id="modal-Paul-gallery" style="top: 15%; left: 25%;">
-        
+<div class="modal" id="modal-Paul-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-paul-title" style="top: 15%; left: 25%;">
+
         <div class="modal-header">
-            <span>.Paul_Gallery</span>
-            <button class="close-btn">X</button>
+            <span id="modal-paul-title">.Paul_Gallery</span>
+            <button class="close-btn" aria-label="Close window">X</button>
         </div>
         
         <div class="modal-content">
             <div class="masonry-gallery">
                 
                 <div class="masonry-card">
-                    <img src="images/paulimg/gnomb-1.gif" alt="Gallery Image 1">
+                    <img src="images/paulimg/gnomb-1.webp" alt="Gallery Image 1" loading="lazy">
                     <p class="masonry-caption">Voice activated Gnome</p>
                 </div>
 
                 <div class="masonry-card">
-                    <img src="images/paulimg/gnomb-2.gif" alt="Gallery Image 2">
+                    <img src="images/paulimg/gnomb-2.webp" alt="Gallery Image 2" loading="lazy">
                     <p class="masonry-caption">Gnomb controller </p>
                 </div>
 
                 <div class="masonry-card">
-                    <img src="images/paulimg/gnomb-3.gif" alt="Gallery Image 3">
+                    <img src="images/paulimg/gnomb-3.webp" alt="Gallery Image 3" loading="lazy">
                     <p class="masonry-caption">Hand Tracking Guy </p>
                 </div>
 
                 <div class="masonry-card">
-                    <img src="images/paulimg/gnomb-4.gif" alt="Gallery Image 4">
+                    <img src="images/paulimg/gnomb-4.webp" alt="Gallery Image 4" loading="lazy">
                     <p class="masonry-caption">Motion dectect Gnomb</p>
                 </div>
 
@@ -197,77 +228,77 @@
         </div>
     </div>
         <!-- ______SpaceMan_____ -->
-<div class="modal" id="modal-Space-gallery" style="top: 15%; left: 25%;">
-        
+<div class="modal" id="modal-Space-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-space-title" style="top: 15%; left: 25%;">
+
         <div class="modal-header">
-            <span>.SpaceMan_Gallery</span>
-            <button class="close-btn">X</button>
+            <span id="modal-space-title">.SpaceMan_Gallery</span>
+            <button class="close-btn" aria-label="Close window">X</button>
         </div>
         
         <div class="modal-content spaceman-layout">
             
             <div class="spaceman-hero project-gallery-6imgs">
-                <img src="images/spaceimg/taoalssasposter.png" alt="Main Poster">
+                <img src="images/spaceimg/taoalssasposter.webp" alt="Main Poster" loading="lazy">
             </div>
 
             <div class="spaceman-grid project-gallery-6imgs">
-                <img src="images/spaceimg/img6.jpg" alt="Gallery Image 2">
-                <img src="images/spaceimg/img8.jpg" alt="Gallery Image 3">
-                <img src="images/spaceimg/img4.jpg" alt="Gallery Image 4">
-                <img src="images/spaceimg/img9.jpg" alt="Gallery Image 6">
+                <img src="images/spaceimg/img6.webp" alt="Gallery Image 2" loading="lazy">
+                <img src="images/spaceimg/img8.webp" alt="Gallery Image 3" loading="lazy">
+                <img src="images/spaceimg/img4.webp" alt="Gallery Image 4" loading="lazy">
+                <img src="images/spaceimg/img9.webp" alt="Gallery Image 6" loading="lazy">
             </div>
 
         </div>
     </div>
             <!-- ______Move_____ -->    
-    <div class="modal" id="modal-Move-gallery" style="top: 15%; left: 25%; width: 700px;">
-        
+    <div class="modal" id="modal-Move-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-move-title" style="top: 15%; left: 25%; width: 700px;">
+
         <div class="modal-header">
-            <span>.Move_Gallery</span>
-            <button class="close-btn">X</button>
+            <span id="modal-move-title">.Move_Gallery</span>
+            <button class="close-btn" aria-label="Close window">X</button>
         </div>
         
         <div class="modal-content">
             <div class="masonry-gallery">
-                            <img src="\Images\MoveImg\Img1.jpg" alt="Gallery Image 1">
-                            <img src="\Images\MoveImg\Img2.jpg" alt="Gallery Image 2">
-                            <img src="\Images\MoveImg\motion-tracking1.gif" alt="Gallery Image 3">
-                            <img src="\Images\MoveImg\motion-tracking2.gif" alt="Gallery Image 4">
+                            <img src="images/moveimg/img1.webp" alt="Gallery Image 1" loading="lazy">
+                            <img src="images/moveimg/img2.webp" alt="Gallery Image 2" loading="lazy">
+                            <img src="images/moveimg/motion-tracking1.webp" alt="Gallery Image 3" loading="lazy">
+                            <img src="images/moveimg/motion-tracking2.webp" alt="Gallery Image 4" loading="lazy">
                         </div>
                 </div>
         </div>  
 
         <!-- _____AlotCity_______ -->
-     <div class="modal" id="modal-Alot-gallery" style="top: 15%; left: 25%; width: 700px;">
-        
+     <div class="modal" id="modal-Alot-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-alot-title" style="top: 15%; left: 25%; width: 700px;">
+
         <div class="modal-header">
-            <span>.AlotmentCity_Gallery</span>
-            <button class="close-btn">X</button>
+            <span id="modal-alot-title">.AlotmentCity_Gallery</span>
+            <button class="close-btn" aria-label="Close window">X</button>
         </div>
         
         <div class="modal-content">
             <div class="masonry-gallery">
-                            <img src="images/alotcityimg/image1.jpg" alt="Gallery Image 1">
-                            <img src="images/alotcityimg/image2.jpg" alt="Gallery Image 2">
+                            <img src="images/alotcityimg/image1.webp" alt="Gallery Image 1" loading="lazy">
+                            <img src="images/alotcityimg/image2.webp" alt="Gallery Image 2" loading="lazy">
                         </div>
                 </div>
         </div>      
         <!-- _____Anthro_______ -->    
 
-<div class="modal" id="modal-Anthro-gallery">
-            
+<div class="modal" id="modal-Anthro-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-anthro-title">
+
             <div class="modal-header">
-                <span>.Anthro Machine_Gallery</span>
-                <button class="close-btn">X</button>
+                <span id="modal-anthro-title">.Anthro Machine_Gallery</span>
+                <button class="close-btn" aria-label="Close window">X</button>
             </div>
             
             <div class="modal-content anthro-modal-layout">
                 
                 <div class="anthro-carousel-wrapper">
                     <div class="anthro-carousel-track" id="anthro-track">
-                        <img src="images/amposters.webp" alt="Gallery Image 1">
-                        <img src="images/amposters2.webp" alt="Gallery Image 2">
-                        <img src="images/anthromimg/tam-graphic-posters.webp" alt="Gallery Image 3">
+                        <img src="images/amposters.webp" alt="Gallery Image 1" loading="lazy">
+                        <img src="images/amposters2.webp" alt="Gallery Image 2" loading="lazy">
+                        <img src="images/anthromimg/tam-graphic-posters.webp" alt="Gallery Image 3" loading="lazy">
                     </div>
                 </div>
 
@@ -276,12 +307,12 @@
                 </div>
 
                 <div class="project-gallery-6imgs" style="width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image1.webp" alt="Img 1"></div>
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image2.webp" alt="Img 2"></div>
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image3.webp" alt="Img 3"></div>
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image4.webp" alt="Img 4"></div>
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image5.webp" alt="Img 5"></div>
-                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image6.webp" alt="Img 6"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image1.webp" alt="Img 1" loading="lazy"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image2.webp" alt="Img 2" loading="lazy"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image3.webp" alt="Img 3" loading="lazy"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image4.webp" alt="Img 4" loading="lazy"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image5.webp" alt="Img 5" loading="lazy"></div>
+                    <div class="gallery-item"><img style="width: 100%; height: 100%; object-fit: cover;" src="images/anthromimg/image6.webp" alt="Img 6" loading="lazy"></div>
                 </div>
 
                 <div class="split-media" style="display: flex; width: 100%; gap: 30px; align-items: flex-start;">                       
@@ -306,34 +337,34 @@
 
 <!-- ______GastroLud____ -->
 
-<div class="modal" id="modal-gastro-gallery" style="top: 15%; left: 30%;">
+<div class="modal" id="modal-gastro-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-gastro-title" style="top: 15%; left: 30%;">
         <div class="modal-header">
-            <span>.Gastro_Process</span>
+            <span id="modal-gastro-title">.Gastro_Process</span>
             <div class="window-controls">
-                <button class="close-btn">X</button>
+                <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         
         <div class="modal-content">
             
             <div class="gastro-flasher" id="gastro-flasher">
-                <img src="images/GastroLud/Bookwithsleave.png" alt="Gastro Process 0.1" class="active-flash">
-                <img src="images/GastroLud/BookwithHalfsleave.png" alt="Gastro Process 0.2">
-                <img src="images/GastroLud/BookwithOutsleave.png" alt="Gastro Process 0.3">
+                <img src="images/GastroLud/Bookwithsleave.webp" alt="Gastro Process 0.1" class="active-flash" loading="lazy">
+                <img src="images/GastroLud/BookwithHalfsleave.webp" alt="Gastro Process 0.2" loading="lazy">
+                <img src="images/GastroLud/BookwithOutsleave.webp" alt="Gastro Process 0.3" loading="lazy">
             </div>
 
             <div class="masonry-gallery">
-                <img src="images/GastroLud/1.2Page.png" alt="Gastro Process 1">
-                <img src="images/GastroLud/9.10Page.png" alt="Gastro Process 2">
-                <img src="images/GastroLud/17.18Page.png" alt="Gastro Process 3">
-                <img src="images/GastroLud/41.42Page.png" alt="Gastro Process 4">
-                <img src="images/GastroLud/57.58Page.png" alt="Gastro Process 5">
-                <img src="images/GastroLud/69.70Page.png" alt="Gastro Process 6">
-                <img src="images/GastroLud/83.83Page.png" alt="Gastro Process 7">
-                <img src="images/GastroLud/91.92Page.png" alt="Gastro Process 8">
-                <!-- <img src="images/GastroLud/97.98Page.png" alt="Gastro Process 9"> -->
-                <img src="images/GastroLud/99.100Page.png" alt="Gastro Process 10">
-                <img src="images/GastroLud/107.108Page.png" alt="Gastro Process 11">    
+                <img src="images/GastroLud/1.2Page.webp" alt="Gastro Process 1" loading="lazy">
+                <img src="images/GastroLud/9.10Page.webp" alt="Gastro Process 2" loading="lazy">
+                <img src="images/GastroLud/17.18Page.webp" alt="Gastro Process 3" loading="lazy">
+                <img src="images/GastroLud/41.42Page.webp" alt="Gastro Process 4" loading="lazy">
+                <img src="images/GastroLud/57.58Page.webp" alt="Gastro Process 5" loading="lazy">
+                <img src="images/GastroLud/69.70Page.webp" alt="Gastro Process 6" loading="lazy">
+                <img src="images/GastroLud/83.83Page.webp" alt="Gastro Process 7" loading="lazy">
+                <img src="images/GastroLud/91.92Page.webp" alt="Gastro Process 8" loading="lazy">
+                <!-- <img src="images/GastroLud/97.98Page.webp" alt="Gastro Process 9"> -->
+                <img src="images/GastroLud/99.100Page.webp" alt="Gastro Process 10" loading="lazy">
+                <img src="images/GastroLud/107.108Page.webp" alt="Gastro Process 11" loading="lazy">    
             </div>
 
         </div>
@@ -341,65 +372,65 @@
 
     <!-- ______CSM____ -->
 
-<div class="modal" id="modal-CSM-gallery" style="top: 15%; left: 30%;">
+<div class="modal" id="modal-CSM-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-csm-title" style="top: 15%; left: 30%;">
         <div class="modal-header">
-            <span>.CSMShow_Process</span>
+            <span id="modal-csm-title">.CSMShow_Process</span>
             <div class="window-controls">
-                <button class="min-btn">[ ]</button>
-                <button class="close-btn">X</button>
+                <button class="min-btn" aria-label="Minimise window">[ ]</button>
+                <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         
         <div class="modal-content csm-modal-layout">
             
             <div class="csm-full-width project-gallery-6imgs">
-                <img src="images/csmproject/shows-posters.webp" alt="Process 5">
+                <img src="images/csmproject/shows-posters.webp" alt="Process 5" loading="lazy">
             </div>
 
             <div class="csm-three-col project-gallery-6imgs">
-                <img src="images/csmproject/csm_platform_bar.webp" alt="Process 1">
-                <img src="images/csmproject/granary-window.webp" alt="Process 3">
-                <img src="images/csmproject/lethaby-window.webp" alt="Process 4">
+                <img src="images/csmproject/csm_platform_bar.webp" alt="Process 1" loading="lazy">
+                <img src="images/csmproject/granary-window.webp" alt="Process 3" loading="lazy">
+                <img src="images/csmproject/lethaby-window.webp" alt="Process 4" loading="lazy">
             </div>
 
             <div class="csm-full-width project-gallery-6imgs">
-                <img src="images/csmproject/csm-showslogo.webp" alt="Process 2"> 
+                <img src="images/csmproject/csm-showslogo.webp" alt="Process 2" loading="lazy">
             </div>
 
             <div class="csm-gif-grid project-gallery-6imgs">
                 
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/collaboration.gif" alt="Gif 1">
+                    <img src="images/csmshapegifs/collaboration.webp" alt="Gif 1" loading="lazy">
                     <p class="masonry-caption">Collaboration</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/craft.gif" alt="Gif 2">
+                    <img src="images/csmshapegifs/craft.webp" alt="Gif 2" loading="lazy">
                     <p class="masonry-caption">Craft</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/experimentation.gif" alt="Gif 3">
+                    <img src="images/csmshapegifs/experimentation.webp" alt="Gif 3" loading="lazy">
                     <p class="masonry-caption">Experimentation</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/idea-generation.gif" alt="Gif 4">
+                    <img src="images/csmshapegifs/idea-generation.webp" alt="Gif 4" loading="lazy">
                     <p class="masonry-caption">Idea Generation</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/independence.gif" alt="Gif 5">
+                    <img src="images/csmshapegifs/independence.webp" alt="Gif 5" loading="lazy">
                     <p class="masonry-caption">Independence</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/iteration.gif" alt="Gif 6">
+                    <img src="images/csmshapegifs/iteration.webp" alt="Gif 6" loading="lazy">
                     <p class="masonry-caption">Iteration</p>
                 </div>
-                
+
                 <div class="masonry-card csm-gif-card">
-                    <img src="images/csmshapegifs/research.gif" alt="Gif 7">
+                    <img src="images/csmshapegifs/research.webp" alt="Gif 7" loading="lazy">
                     <p class="masonry-caption">Research</p>
                 </div>
 
@@ -409,29 +440,73 @@
     </div>
 
         <!-- ______DistructiveNature____ -->
-<div class="modal" id="modal-Nature-gallery" style="top: 15%; left: 30%;">
+<div class="modal" id="modal-Nature-gallery" role="dialog" aria-modal="true" aria-labelledby="modal-nature-title" style="top: 15%; left: 30%;">
         <div class="modal-header">
-            <span>._DistructiveNatureProcess</span>
+            <span id="modal-nature-title">._DistructiveNatureProcess</span>
             <div class="window-controls">
-                <button class="close-btn">X</button>
+                <button class="close-btn" aria-label="Close window">X</button>
             </div>
         </div>
         
         <div class="modal-content nature-layout">
             
             <div class="nature-flasher">
-                <img src="NatureBookImgsNew/NatureBookIm1.png" alt="Process 1" class="active-flash">
-                <img src="NatureBookImgsNew/NatureBookIm2.png" alt="Process 2"> 
+                <img src="NatureBookImgsNew/NatureBookIm1.webp" alt="Process 1" class="active-flash" loading="lazy">
+                <img src="NatureBookImgsNew/NatureBookIm2.webp" alt="Process 2" loading="lazy">
             </div>
 
             <div class="single-col-gallery project-gallery-6imgs">
-                <img src="NatureBookImgsNew/NatureBooFlatImg1.png" alt="Process 3">
-                <img src="NatureBookImgsNew/NatureBooFlatImg2.png" alt="Process 4">
-                <img src="NatureBookImgsNew/NatureBooFlatIm3.png" alt="Process 5">                   
+                <img src="NatureBookImgsNew/NatureBooFlatImg1.webp" alt="Process 3" loading="lazy">
+                <img src="NatureBookImgsNew/NatureBooFlatImg2.webp" alt="Process 4" loading="lazy">
+                <img src="NatureBookImgsNew/NatureBooFlatIm3.webp" alt="Process 5" loading="lazy">                   
             </div>
 
         </div>
     </div>
+    <!-- _______CONTACT ME_____ -->
+    <div id="modal-contact" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-contact-title" style="top: 20%; left: 35%; width: 380px;">
+        <div class="modal-header">
+            <span id="modal-contact-title">Contact_Jacob</span>
+            <div class="window-controls">
+                <button class="close-btn" aria-label="Close window">X</button>
+            </div>
+        </div>
+        <div class="modal-content contact-content">
+
+            <div class="contact-header-row">
+                <img src="icons/email.svg" alt="" class="contact-icon-lg" aria-hidden="true">
+                <div class="contact-name-block">
+                    <h2 class="contact-name">JACOB LLOYD DAVID</h2>
+                    <p class="contact-tagline">Multidisciplinary Creative</p>
+                </div>
+            </div>
+
+            <hr class="contact-divider">
+
+            <ul class="contact-list">
+                <li>
+                    <span class="contact-label">EMAIL</span>
+                    <!-- UPDATE: replace with real email address -->
+                    <a href="mailto:jacob@example.com" class="contact-value">jacob@example.com</a>
+                </li>
+                <li>
+                    <span class="contact-label">BASED</span>
+                    <span class="contact-value">London, UK</span>
+                </li>
+                <li>
+                    <span class="contact-label">LINKEDIN</span>
+                    <!-- UPDATE: replace with real LinkedIn URL -->
+                    <a href="#" class="contact-value" target="_blank" rel="noopener">linkedin.com/in/jacoblloyddavid</a>
+                </li>
+            </ul>
+
+            <hr class="contact-divider">
+
+            <p class="contact-footer">Open to full-time roles &amp; collaborations.</p>
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
