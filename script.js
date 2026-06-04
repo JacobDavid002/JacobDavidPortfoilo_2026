@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Nudge it back if it's bleeding off the right/bottom
         if (currentLeft > maxLeft) currentLeft = maxLeft;
         if (currentTop > maxTop) currentTop = maxTop;
-        
+
         // Nudge it back if it's bleeding off the left/top
         if (currentLeft < margin) currentLeft = margin;
         if (currentTop < margin) currentTop = margin;
@@ -63,40 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const firstFocusable = modal.querySelector('button');
         if (firstFocusable) firstFocusable.focus();
+
+        // Update URL hash so this window is shareable
+        history.replaceState(null, '', '#' + modal.id);
     };
-    
-    // ... (Your existing Window Memory code might be here, keep it!) ...
+
     const allModals = document.querySelectorAll('.modal');
     allModals.forEach(modal => {
         modal.dataset.origTop = modal.style.top || '';
         modal.dataset.origLeft = modal.style.left || '';
         modal.dataset.origWidth = modal.style.width || '';
         modal.dataset.origHeight = modal.style.height || '';
-
-    // =========================================================
-    // --- NEW: URL PARAMETER AUTO-OPENER ---
-    // =========================================================
-    
-    // 1. Ask the browser to read the current URL's search parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // 2. Look specifically for a parameter named "open"
-    const windowToOpen = urlParams.get('open'); 
-
-    // 3. If the "open" parameter exists in the URL...
-    if (windowToOpen) {
-        // Find the window with the exact ID matching the parameter
-        const targetModal = document.getElementById(windowToOpen);
-        
-        // If that window actually exists in your HTML, open it!
-        if (targetModal) {
-            window.safeOpenModal(targetModal);
-            
-            // Optional: Bring it to the absolute front just to be safe
-            targetModal.style.zIndex = 1000; 
-        }
-    }
-});
+    });
 
 // --- REUSABLE DRAG FUNCTION (UPGRADED FOR TOUCHSCREENS) ---
     function makeDraggable(element, dragHandle, isIcon = false) {
@@ -562,6 +540,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 3. Reset the max-width/height just in case they closed it while it was Maximized!
                 modal.style.maxWidth = '';
                 modal.style.maxHeight = '';
+
+                // 4. Clear the URL hash if it pointed to this window
+                if (window.location.hash === '#' + modal.id) {
+                    history.replaceState(null, '', window.location.pathname);
+                }
             }
         });
     });
@@ -734,10 +717,19 @@ document.addEventListener('click', (e) => {
     });
 
 
+// --- HASH-BASED DEEP LINK OPENER ---
+    const hashId = window.location.hash.slice(1);
+    if (hashId) {
+        const hashModal = document.getElementById(hashId);
+        if (hashModal) {
+            window.safeOpenModal(hashModal);
+        }
+    }
+
 // --- AUTO-OPEN ABOUT ME WINDOW ON LOAD ---
     const aboutModal = document.getElementById('modal-about');
-    
-    if (aboutModal) {
+
+    if (aboutModal && !hashId) {
         // 1. Get the safe screen dimensions
         const margin = 20;
         const screenW = document.documentElement.clientWidth;
