@@ -193,14 +193,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 // --- SETUP ICONS (CUSTOM SCENE LAYOUT & CLICK LOGIC) ---
-    const iconWidth = 130; 
-    const iconHeight = 100;
+    // const iconWidth = 130; 
+    // const iconHeight = 100;
 
     appIcons.forEach((icon, index) => {
         
+        const iconWidth = icon.offsetWidth;
+        const iconHeight = icon.offsetHeight;
+
         let baseSpawnX, baseSpawnY;
-        const screenW = window.innerWidth;
-        const screenH = window.innerHeight;
+        const screenW = document.documentElement.clientWidth;
+        const screenH = document.documentElement.clientHeight;
 
         // 1. ASSIGN SPECIFIC SPAWN ZONES BASED ON ICON ORDER
         if (index === 0) {
@@ -224,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
             baseSpawnY = screenH * 0.65;
         }
         else if (index === 5) {
-            baseSpawnX = screenW * 0.80 - iconWidth;
+            baseSpawnX = (screenW * 0.20) - 160;
             baseSpawnY = screenH * 0.65;
         }
         else {
@@ -574,8 +577,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let newLeft = Math.round((currentLeft * scaleX) / gridSize) * gridSize;
             let newTop = Math.round((currentTop * scaleY) / gridSize) * gridSize;
 
-            const maxLeft = Math.floor((currentScreenW - 130 - desktopMargin) / gridSize) * gridSize;
-            const maxTop = Math.floor((currentScreenH - 100 - desktopMargin) / gridSize) * gridSize;
+            const maxLeft = Math.floor((currentScreenW - icon.offsetWidth - desktopMargin) / gridSize) * gridSize;
+            const maxTop = Math.floor((currentScreenH - icon.offsetHeight - desktopMargin) / gridSize) * gridSize;
 
             if (newLeft < desktopMargin) newLeft = desktopMargin;
             if (newTop < desktopMargin) newTop = desktopMargin;
